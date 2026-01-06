@@ -41,9 +41,22 @@ const food = [
 ];
 
 const drinks = [
-  { title: "Draft Beer", desc: "Start with a cold one." },
+  {
+    title: "Draft Beer（生ビール）",
+    desc: "Start with a cold one.",
+    image: "/images/menu/beer.jpg"
+  },
+  {
+    title: "Lemon Sour（レモンサワー）",
+    desc: "Classic Japanese favorite.",
+    image: "/images/menu/lemon-sour.jpg"
+  },
+  {
+    title: "Mega Lemon Sour（メガレモンサワー）",
+    desc: "Super-sized refreshment.",
+    image: "/images/menu/mega-lemon-sour.png"
+  },
   { title: "Super Carbonated Highball", desc: "Refreshing and crisp." },
-  { title: "Lemon Sour", desc: "Classic Japanese favorite." },
   { title: "Ocha-wari", desc: "Tea-infused shochu. Smooth." },
   { title: "Shochu", desc: "On the rocks / Water / Hot water." },
   { title: "Sake", desc: "Pairs perfectly with our dishes." },
@@ -69,6 +82,7 @@ export function MenuShowcase() {
               title: f.title,
               desc: f.desc,
               badge: "Food",
+              image: f.image,
             }))}
           />
         </div>
@@ -82,6 +96,7 @@ export function MenuShowcase() {
               title: d.title,
               desc: d.desc,
               badge: "Drink",
+              image: d.image,
             }))}
           />
         </div>
