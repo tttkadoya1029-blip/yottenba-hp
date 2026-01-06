@@ -26,17 +26,17 @@ const items = [
 
 export function HowToEnjoy() {
   return (
-    <Section id="howto">
-      <div className="flex items-end justify-between gap-4">
+    <Section id="howto" className="bg-diagonal-red lantern-border-top lantern-border-bottom">
+      <div className="flex items-end justify-between gap-4 content-overlay">
         <div>
-          <h2 className="text-2xl font-bold">The YOTTEBA Way</h2>
-          <p className="mt-2 text-sm text-white/70">
+          <h2 className="text-2xl font-bold text-white">The YOTTEBA Way</h2>
+          <p className="mt-2 text-sm text-white/90">
             How to make the most of your visit
           </p>
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 content-overlay">
         {items.map((it, idx) => (
           <motion.div
             key={it.title}
@@ -44,11 +44,11 @@ export function HowToEnjoy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.45, delay: idx * 0.05 }}
-            className="rounded-3xl border border-white/10 bg-white/5 p-6"
+            className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm p-6"
           >
-            <div className="text-xs text-white/60">{it.tag}</div>
-            <h3 className="mt-2 text-base font-semibold">{it.title}</h3>
-            <p className="mt-3 text-sm text-white/75">{it.body}</p>
+            <div className="text-xs text-white/80">{it.tag}</div>
+            <h3 className="mt-2 text-base font-semibold text-white">{it.title}</h3>
+            <p className="mt-3 text-sm text-white/90">{it.body}</p>
           </motion.div>
         ))}
       </div>

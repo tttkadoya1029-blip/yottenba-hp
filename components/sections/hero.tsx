@@ -4,9 +4,8 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.12),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(255,215,128,0.14),transparent_45%),linear-gradient(to_bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.85))]" />
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-20 md:grid-cols-2 md:py-28">
+    <section id="top" className="retro-section bg-hero-retro lantern-border-bottom overflow-hidden">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-20 md:grid-cols-2 md:py-28 content-overlay">
         <div className="relative">
           <motion.p
             initial={{ opacity: 0, y: 10 }}

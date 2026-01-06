@@ -1,3 +1,168 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================
+   YOTTEBA Retro Izakaya Background Styles
+   ============================================ */
+
+/* Paper Texture Base */
+@layer base {
+  body {
+    @apply bg-[#f5f1e8];
+  }
+}
+
+@layer utilities {
+  /* Paper texture with subtle noise */
+  .bg-paper {
+    background-color: #f5f1e8;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      );
+    background-size: 100% 100%;
+  }
+
+  /* Dark paper texture for footer */
+  .bg-paper-dark {
+    background-color: #1a1410;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.02) 2px,
+        rgba(255, 255, 255, 0.02) 4px
+      );
+  }
+
+  /* Red diagonal stripe background */
+  .bg-diagonal-red {
+    position: relative;
+    background: linear-gradient(135deg, #c41e3a 0%, #8b1429 100%);
+    overflow: hidden;
+  }
+
+  .bg-diagonal-red::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(0, 0, 0, 0.03) 60px,
+      rgba(0, 0, 0, 0.03) 120px
+    );
+    pointer-events: none;
+  }
+
+  /* Navy diagonal stripe background */
+  .bg-diagonal-navy {
+    position: relative;
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f1e3a 100%);
+    overflow: hidden;
+  }
+
+  .bg-diagonal-navy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.03) 60px,
+      rgba(255, 255, 255, 0.03) 120px
+    );
+    pointer-events: none;
+  }
+
+  /* Lantern border (simplified CSS version - can be replaced with SVG) */
+  .lantern-border-top {
+    position: relative;
+  }
+
+  .lantern-border-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background:
+      radial-gradient(circle at 20px 6px, #c41e3a 4px, transparent 4px),
+      radial-gradient(circle at 60px 6px, #c41e3a 4px, transparent 4px),
+      radial-gradient(circle at 100px 6px, #c41e3a 4px, transparent 4px);
+    background-size: 80px 12px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+  }
+
+  .lantern-border-bottom {
+    position: relative;
+  }
+
+  .lantern-border-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background:
+      radial-gradient(circle at 20px 6px, #c41e3a 4px, transparent 4px),
+      radial-gradient(circle at 60px 6px, #c41e3a 4px, transparent 4px),
+      radial-gradient(circle at 100px 6px, #c41e3a 4px, transparent 4px);
+    background-size: 80px 12px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+  }
+
+  /* Retro hero gradient */
+  .bg-hero-retro {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(26, 20, 16, 0.85) 0%,
+        rgba(196, 30, 58, 0.15) 50%,
+        rgba(26, 20, 16, 0.90) 100%
+      ),
+      #1a1410;
+  }
+
+  /* Content overlay for readability */
+  .content-overlay {
+    position: relative;
+    z-index: 1;
+  }
+
+  .content-overlay-bg {
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Retro section wrapper */
+  .retro-section {
+    position: relative;
+    isolation: isolate;
+  }
+}
