@@ -1,15 +1,22 @@
+import Image from "next/image";
+
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 py-10">
+    <footer className="bg-paper-dark border-t border-white/5 py-10">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col gap-8 md:flex-row md:justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                🍗
-              </span>
+              <div className="relative h-12 w-12">
+                <Image
+                  src="/logo.png"
+                  alt="YOTTEBA Logo"
+                  fill
+                  className="object-contain brightness-0 invert"
+                />
+              </div>
               <div className="leading-tight">
-                <div className="font-semibold tracking-wide">YOTTEBA</div>
+                <div className="font-semibold tracking-wide text-white">YOTTEBA</div>
                 <div className="text-xs text-white/70">Izakaya Revolution</div>
               </div>
             </div>
@@ -21,7 +28,7 @@ export function SiteFooter() {
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
             <div>
-              <div className="text-sm font-semibold">Menu</div>
+              <div className="text-sm font-semibold text-white">Menu</div>
               <div className="mt-3 space-y-2 text-sm text-white/70">
                 <a href="#menu" className="block hover:text-white">
                   Food
@@ -36,7 +43,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <div className="text-sm font-semibold">Visit</div>
+              <div className="text-sm font-semibold text-white">Visit</div>
               <div className="mt-3 space-y-2 text-sm text-white/70">
                 <a href="#location" className="block hover:text-white">
                   Location
@@ -56,7 +63,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <div className="text-sm font-semibold">Connect</div>
+              <div className="text-sm font-semibold text-white">Connect</div>
               <div className="mt-3 space-y-2 text-sm text-white/70">
                 <a
                   href="https://www.instagram.com/yotteba_makati/"
@@ -74,7 +81,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-white/60">
+        <div className="mt-8 border-t border-white/5 pt-6 text-center text-sm text-white/60">
           <p>
             © {new Date().getFullYear()} YOTTEBA Makati. All rights reserved.
           </p>

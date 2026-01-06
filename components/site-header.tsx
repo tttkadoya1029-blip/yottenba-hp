@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const nav = [
   { label: "Top", href: "#top" },
@@ -25,18 +26,24 @@ export function SiteHeader() {
       className={[
         "sticky top-0 z-50 border-b transition",
         scrolled
-          ? "border-white/10 bg-neutral-950/80 backdrop-blur"
+          ? "border-neutral-200/30 bg-[#f5f1e8]/95 backdrop-blur"
           : "border-transparent bg-transparent",
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#top" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-            🍗
-          </span>
+          <div className="relative h-10 w-10">
+            <Image
+              src="/logo.png"
+              alt="YOTTEBA Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
           <div className="leading-tight">
-            <div className="text-sm font-semibold tracking-wide">YOTTEBA</div>
-            <div className="text-xs text-white/70">Makati</div>
+            <div className="text-sm font-semibold tracking-wide text-neutral-900">YOTTEBA</div>
+            <div className="text-xs text-neutral-600">Makati</div>
           </div>
         </a>
 
@@ -45,7 +52,7 @@ export function SiteHeader() {
             <a
               key={n.href}
               href={n.href}
-              className="text-sm text-white/80 hover:text-white"
+              className="text-sm text-neutral-700 hover:text-neutral-900 font-medium"
             >
               {n.label}
             </a>
@@ -57,7 +64,7 @@ export function SiteHeader() {
             href="https://www.instagram.com/yotteba_makati/"
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-xl border border-white/15 px-3 py-2 text-sm text-white/90 hover:bg-white/10 md:block"
+            className="hidden rounded-xl border border-neutral-300 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 md:block"
             aria-label="Instagram"
           >
             <svg
@@ -75,14 +82,14 @@ export function SiteHeader() {
           </a>
           <a
             href="tel:+639171333460"
-            className="rounded-xl border border-white/15 px-3 py-2 text-sm text-white/90 hover:bg-white/10"
+            className="rounded-xl border border-neutral-300 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100"
             data-cta="call"
           >
             Call
           </a>
           <a
             href="#location"
-            className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-neutral-950 hover:opacity-90"
+            className="rounded-xl bg-neutral-900 px-3 py-2 text-sm font-semibold text-white hover:bg-neutral-800"
             data-cta="reserve"
           >
             Reserve
