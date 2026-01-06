@@ -4,11 +4,37 @@ import { Section } from "@/components/ui/section";
 import { Carousel } from "@/components/ui/carousel";
 
 const food = [
-  { title: "Tebasaki (Tare)", desc: "Crispy outside, juicy inside. Our signature." },
-  { title: "Tebasaki (Salt)", desc: "Simple seasoning, pure flavor." },
+  {
+    title: "Tebasaki（手羽先）",
+    desc: "Crispy outside, juicy inside. Our signature.",
+    image: "/images/menu/tebasaki.png"
+  },
+  {
+    title: "Gyoza（餃子）",
+    desc: "Perfect with drinks.",
+    image: "/images/menu/gyoza.png"
+  },
+  {
+    title: "Ramen Tonkotsu（豚骨ラーメン）",
+    desc: "Rich and creamy pork bone broth.",
+    image: "/images/menu/ramen-tonkotsu.png"
+  },
+  {
+    title: "Sashimi（刺身）",
+    desc: "Fresh and delicate.",
+    image: "/images/menu/sashimi.png"
+  },
+  {
+    title: "Yakitori Skewers（焼き鳥）",
+    desc: "Grilled chicken perfection.",
+    image: "/images/menu/skewer.png"
+  },
+  {
+    title: "Sukiyaki（すき焼き）",
+    desc: "Sweet and savory hot pot.",
+    image: "/images/menu/sukiyaki.png"
+  },
   { title: "House Karaage", desc: "Classic crispy fried chicken." },
-  { title: "Legendary Gyoza", desc: "Perfect with drinks." },
-  { title: "Motsu煮 (Offal Stew)", desc: "Rich and comforting." },
   { title: "French Fries", desc: "Always a crowd pleaser." },
   { title: "Tsukune Skewers", desc: "Chicken meatballs with egg yolk." },
   { title: "Edamame", desc: "Classic starter." },
@@ -27,16 +53,16 @@ const drinks = [
 
 export function MenuShowcase() {
   return (
-    <Section id="menu">
-      <h2 className="text-2xl font-bold">Our Menu</h2>
-      <p className="mt-2 text-sm text-white/70">
-        Signature dishes and drinks. Images coming soon.
+    <Section id="menu" className="bg-paper lantern-border-top">
+      <h2 className="text-2xl font-bold text-neutral-900">Our Menu</h2>
+      <p className="mt-2 text-sm text-neutral-600">
+        Signature dishes and drinks that keep you coming back.
       </p>
 
       <div className="mt-8 space-y-10">
         <div>
           <div className="mb-3 flex items-center justify-between">
-            <h3 className="text-lg font-semibold">Food</h3>
+            <h3 className="text-lg font-semibold text-neutral-900">Food</h3>
           </div>
           <Carousel
             items={food.map((f) => ({
@@ -49,7 +75,7 @@ export function MenuShowcase() {
 
         <div>
           <div className="mb-3 flex items-center justify-between">
-            <h3 className="text-lg font-semibold">Drinks</h3>
+            <h3 className="text-lg font-semibold text-neutral-900">Drinks</h3>
           </div>
           <Carousel
             items={drinks.map((d) => ({
