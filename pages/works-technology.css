@@ -1,0 +1,258 @@
+/* ========== ベース ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+/* ========== HEADER ========== */
+.header {
+  padding: 30px 60px;
+  background: #ffffff;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-bottom: 2px solid #333;
+}
+
+/* ========== MAIN ========== */
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 40px 80px;
+}
+
+/* ========== WORKS TITLE ========== */
+.works-title-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.works-title {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #333;
+}
+
+/* ========== WORKS SECTION ========== */
+.works-section {
+  margin-bottom: 40px;
+}
+
+.works-card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* 画像ラッパー */
+.works-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 280px;
+}
+
+/* 黄色いアクセント（平行四辺形） */
+.yellow-accent {
+  position: absolute;
+  background: #E8B923;
+  z-index: 0;
+  transform: skewX(-10deg);
+}
+
+.yellow-accent-left {
+  width: 420px;
+  height: 500px;
+  left: -210px;
+  top: -100px;
+}
+
+.yellow-accent-bottom {
+  width: 500px;
+  height: 600px;
+  left: -280px;
+  bottom: -200px;
+}
+
+/* 画像 */
+.works-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.works-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.works-image-nft {
+  border: 1px solid #eee;
+}
+
+/* コンテンツ */
+.works-content {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.works-content-nft {
+  padding-top: 0;
+}
+
+.works-heading {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.works-text {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.works-list {
+  margin: 16px 0 16px 20px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #555;
+}
+
+.works-list li {
+  margin-bottom: 4px;
+}
+
+/* 区切り線 */
+.section-divider {
+  margin: 50px 0;
+  border: none;
+  border-top: 1px dashed #ccc;
+  width: 100%;
+}
+
+/* ========== レスポンシブ ========== */
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 20px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .main {
+    padding: 20px 20px 60px;
+  }
+
+  .works-title {
+    font-size: 32px;
+  }
+
+  .works-card {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .works-image-wrapper {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .yellow-accent-left {
+    width: 40px;
+    height: 180px;
+    left: -20px;
+  }
+
+  .yellow-accent-bottom {
+    width: 100%;
+    height: 40px;
+    bottom: -20px;
+  }
+
+  .works-heading {
+    font-size: 20px;
+  }
+
+  .works-text {
+    font-size: 12px;
+  }
+
+  .works-list {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

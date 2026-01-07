@@ -1,0 +1,1898 @@
+/* ========== RESET / BASE ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Barlow Condensed", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fafafa;
+  color: #111;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== ページ全体（背景と白パネル） ========== */
+
+.page-bg {
+  position: relative;
+  background: #f1f1f1;
+  min-height: 100vh;
+}
+
+.page-panel {
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0 70%);
+  margin: 0;
+  padding: 0;
+}
+
+/* コンテナ - 左寄せベース（中央寄せしない） */
+.container {
+  max-width: 1400px;
+  padding: 0 60px 0 80px;
+  position: relative;
+}
+
+/* ========== HERO（920px高さ・左右2分割） ========== */
+
+.hero-wrapper {
+  display: flex;
+  height: 920px;
+  position: relative;
+}
+
+.hero-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px 60px 120px; /* 左側に余白を追加 */
+  position: relative;
+}
+
+.hero-right-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 左側を白で斜めカット */
+.hero-right-inner::before{
+  content:"";
+  position:absolute;
+  left:-140px;      /* もっと左へ */
+  top:0;
+  width:280px;      /* もっと太く */
+  height:100%;
+  background:#fff;
+  transform: skewX(-12deg);
+  transform-origin: left top; /* これ重要：上基準で安定 */
+  z-index: 2;
+  pointer-events:none;
+}
+
+/* ロゴ */
+.header-logo {
+  margin-bottom: 40px;
+}
+
+.header-logo img {
+  height: 32px;
+}
+
+/* ナビ（縦配置） */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 80px;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 28px;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover {
+  opacity: 0.6;
+}
+
+/* コピー（上部寄りに配置） */
+.hero-copy {
+  margin-top: 0;
+}
+
+.hero-title {
+  font-size: 76px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hero-sub {
+  font-size: 13px;
+  line-height: 2.0;
+  font-weight: 400;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* 右側：写真 */
+.hero-right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* タグ（使わない場合は非表示） */
+.hero-tags {
+  display: none;
+}
+
+/* 黄色バー（使わない場合は非表示） */
+.hero-yellow-bar {
+  display: none;
+}
+
+/* ========== OUR EXPERTISE（非対称・ずらし配置） ========== */
+
+.expertise {
+  position: relative;
+  padding: 180px 0 160px 0;
+  overflow: visible;
+  background: #f7f7f7;
+}
+
+/* 背景レイヤー（Expertise用・斜めカット） */
+.expertise::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 400px;
+  background: #f6c536;
+  transform: skewX(-12deg);
+  opacity: 0.85;
+  top: 180px;
+  left: 50%;
+  margin-left: 200px;
+  z-index: 0;
+}
+
+.expertise::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 300px;
+  background: #f6c536;
+  transform: skewX(-12deg);
+  opacity: 0.85;
+  top: 420px;
+  left: 50%;
+  margin-left: -450px;
+  z-index: 0;
+}
+
+.expertise-title {
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 80px;
+  padding-left: 140px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+}
+
+.expertise-grid {
+  position: relative;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  overflow: visible;
+  z-index: 1;
+  margin-bottom: 120px;
+  min-height: 240px;
+}
+
+/* 各カードに個別の配置を適用 */
+.expertise-card:nth-child(1) {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.expertise-card:nth-child(2) {
+  width: 58%;
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: 0;
+}
+
+.expertise-card:nth-child(3) {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.expertise-card:nth-child(4) {
+  width: 58%;
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: 0;
+}
+
+.expertise-image {
+  position: absolute;
+  left: -60px;
+  top: -30px;
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.expertise-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.expertise-content {
+  padding: 40px 40px 40px 280px;
+}
+
+.expertise-subtitle {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  opacity: 0.75;
+}
+
+.expertise-content h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.expertise-description {
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* ========== セクション共通（左寄せベース） ========== */
+
+.section-wrapper {
+  position: relative;
+  padding: 160px 0;
+  overflow: visible;
+  background: #ffffff;
+}
+
+/* 背景レイヤー（Section用・斜めカット） */
+.section-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+  z-index: 0;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-left: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.bar-yellow {
+  width: 50px;
+  height: 4px;
+  background: #f6c536;
+}
+
+.section-title-row h2 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Plan Proposal - First Section（非対称・重なり） */
+.plan-first {
+  position: relative;
+  min-height: 650px;
+  margin-top: 0;
+}
+
+.plan-left {
+  position: relative;
+  width: 60%;
+  min-height: 500px;
+  padding: 80px 60px 80px 80px;
+}
+
+.plan-left-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  clip-path: polygon(0 0, 100% 10%, 95% 90%, 0 100%);
+  z-index: 0;
+}
+
+.plan-text-left {
+  position: relative;
+  z-index: 2;
+  color: #111;
+}
+
+.plan-text-left h2 {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0 0 24px 0;
+  line-height: 1.0;
+  text-transform: uppercase;
+}
+
+.plan-text-left h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 32px 0;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.plan-text-left p {
+  font-size: 11px;
+  line-height: 2.0;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.plan-right {
+  position: absolute;
+  top: 60px;
+  right: -40px;
+  width: 50%;
+  height: 620px;
+  z-index: 3;
+}
+
+.plan-right-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(20% 0, 100% 0, 88% 100%, 0 100%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.plan-right-inner img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Plan Proposal - Second Section（白パネル重ね） */
+.plan-second {
+  position: relative;
+  min-height: 550px;
+  margin-top: 140px;
+  overflow: visible;
+}
+
+.plan-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.plan-overlay {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+  padding: 80px 100px;
+  max-width: 800px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.plan-text-center {
+  text-align: left;
+  color: #111;
+  position: relative;
+  z-index: 1;
+}
+
+.plan-text-center h2 {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin: 0;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+/* Four Cards Section（ずらし配置） */
+.four-cards {
+  position: relative;
+  padding: 160px 60px;
+  background: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 背景レイヤー（Four Cards用・斜めカット） */
+.four-cards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+  z-index: 0;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  overflow: visible;
+  position: relative;
+  margin-bottom: 100px;
+  min-height: 340px;
+  z-index: 1;
+}
+
+.card-item:nth-child(1) {
+  width: 65%;
+  margin-left: 60px;
+  margin-right: auto;
+}
+
+.card-item:nth-child(2) {
+  width: 63%;
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: -30px;
+}
+
+.card-item:nth-child(3) {
+  width: 65%;
+  margin-left: 60px;
+  margin-right: auto;
+  margin-top: -30px;
+}
+
+.card-item:nth-child(4) {
+  width: 63%;
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: -30px;
+}
+
+.card-image {
+  position: absolute;
+  left: 40px;
+  top: -32px;
+  width: calc(360px * 0.8);   /* 288px */
+  height: calc(440px * 0.8);  /* 352px */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-content {
+  padding: 60px 60px 60px 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content h3 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.card-content p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #333;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Story Section（非対称・重なり） */
+.story-section {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 180px 120px 160px;
+  min-height: 700px;
+  background: #ffffff;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 背景レイヤー（Story用・斜めカット） */
+.story-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+  z-index: 0;
+}
+
+/* 1) 平行四辺形の器（skew） */
+.story-image {
+  position: relative;
+  width: 45%;
+  height: 600px;
+  flex-shrink: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 8px;
+  transform: skewX(-10deg);
+  transform-origin: center;
+  box-shadow: -40px 50px 120px rgba(0, 0, 0, 0.18);
+}
+
+/* 白い土台を消す */
+.story-image::before,
+.story-image::after {
+  content: none;
+  display: none;
+}
+
+/* 2) 画像本体（逆skewで歪みを戻す） */
+.story-image img {
+  width: 165%;
+  height: 165%;
+  object-fit: cover;
+  transform: skewX(10deg) scale(1.22);
+  transform-origin: center;
+  position: relative;
+  left: 6%;
+  top: -10%;
+}
+
+.story-accent {
+  display: none;
+}
+
+.story-content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.story-content h2 {
+  position: relative;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+/* タイトル左の黄色い平行四辺形 */
+.story-content h2::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  width: 60px;
+  height: 100px;
+  background: #f6c536;
+  clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+}
+
+.story-content p {
+  font-size: 13px;
+  line-height: 2.0;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 400;
+  opacity: 0.85;
+  text-align: left;
+  align-self: stretch;
+}
+
+/* Four Method Cards（ずらし・重なり） */
+.method-cards {
+  position: relative;
+  padding: 180px 0 160px;
+  background: #f8f8f8;
+}
+
+/* 背景レイヤー（Method Cards用・斜めカット） */
+.method-cards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+  clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+  z-index: 0;
+}
+
+.method-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 120px;
+  z-index: 1;
+}
+
+.method-card:nth-child(1) {
+  padding-left: 80px;
+}
+
+.method-card:nth-child(2) {
+  padding-right: 80px;
+  justify-content: flex-end;
+}
+
+.method-card:nth-child(3) {
+  padding-left: 120px;
+}
+
+.method-card:nth-child(4) {
+  padding-right: 100px;
+  justify-content: flex-end;
+}
+
+.method-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.method-card-image {
+  position: relative;
+  width: 58%;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.method-card.reverse .method-card-image {
+  clip-path: polygon(22% 0, 100% 0, 78% 100%, 0 100%);
+}
+
+.method-card:not(.reverse) .method-card-image {
+  clip-path: polygon(0 0, 78% 0, 100% 100%, 22% 100%);
+}
+
+.method-card-image img {
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.method-card-content {
+  position: absolute;
+  width: 42%;
+  padding: 60px 70px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.method-card.reverse .method-card-content {
+  right: 80px;
+  text-align: left;
+}
+
+.method-card:not(.reverse) .method-card-content {
+  right: 80px;
+}
+
+.method-card-content h3 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  padding-bottom: 16px;
+  border-bottom: 4px solid #f6c536;
+  display: inline-block;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.method-card-content p {
+  font-size: 13px;
+  line-height: 2.0;
+  margin-top: 24px;
+  color: #333;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* ===== TEAM HERO (新デザイン) ===== */
+.team-hero {
+  background: #ededed;
+  padding: 120px 0 140px;
+}
+
+.team-hero-title {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin: 0 0 80px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 黄色ライン（下敷き） */
+.team-hero-title::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 22px;
+  bottom: 8px;
+  background: #f6c536;
+  z-index: -1;
+}
+
+.team-hero-card {
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  padding: 0 80px;
+  position: relative;
+}
+
+.team-hero-card:last-child {
+  margin-bottom: 0;
+}
+
+/* 右側の「白い斜めパネル」 */
+.team-hero-card::before {
+  content: "";
+  position: absolute;
+  left: 46%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) skewX(-12deg);
+  height: 260px;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 0;
+  border-radius: 6px;
+}
+
+/* 写真 */
+.team-hero-photo {
+  width: 360px;
+  height: 360px;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.team-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.22));
+}
+
+/* テキスト */
+.team-hero-text {
+  position: relative;
+  z-index: 1;
+  padding: 26px 20px 26px 10px;
+  min-width: 480px;
+}
+
+.team-hero-role {
+  font-size: 26px;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+.team-hero-name {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.0;
+  margin-bottom: 18px;
+}
+
+.team-hero-desc {
+  font-size: 14px;
+  line-height: 2.0;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* 左の黄色スラッシュ */
+.team-hero-text::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  right: auto;
+  top: 18px;
+  width: 18px;
+  height: 110px;
+  background: #f6c536;
+  transform: skewX(-12deg);
+}
+
+/* ===== TEAM HERO：左右交互（reverse） ===== */
+
+/* 2枚目だけ写真を右側に */
+.team-hero-card.reverse {
+  flex-direction: row-reverse;
+}
+
+/* reverse時：斜めの白パネルを左側に */
+.team-hero-card.reverse::before {
+  left: 0;
+  right: 46%;
+  transform: translateY(-50%) skewX(12deg);
+}
+
+/* reverse時：黄色スラッシュをテキスト右に */
+.team-hero-card.reverse .team-hero-text::before {
+  left: auto;
+  right: -34px;
+  transform: skewX(12deg);
+}
+
+/* reverse時：テキストの余白を調整 */
+.team-hero-card.reverse .team-hero-text {
+  padding: 26px 10px 26px 20px;
+}
+
+/* 旧team-sectionスタイル（互換性のため残す） */
+.team-section {
+  display: none;
+}
+
+/* Works Section（非対称・重なり） */
+.works-section {
+  position: relative;
+  padding: 200px 0 160px;
+  min-height: 700px;
+  background: #f7f7f7;
+}
+
+/* 背景レイヤー（Works用・斜めカット） */
+.works-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+  z-index: 0;
+}
+
+.works-container {
+  position: relative;
+  padding: 0 80px;
+}
+
+.works-left {
+  position: relative;
+  width: 580px;
+  height: 680px;
+  z-index: 2;
+  margin-left: 520px;
+}
+
+.works-yellow-frame {
+  position: absolute;
+  top: -60px;
+  left: -80px;
+  width: 140%;
+  height: 120%;
+  background: #f6c536;
+  clip-path: polygon(0 0, 88% 0, 100% 100%, 12% 100%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.works-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.works-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.works-right {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  right: auto;
+  width: 52%;
+  z-index: 3;
+}
+
+.works-title-wrapper {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.works-title-bg {
+  background: #fff;
+  padding: 25px 50px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.works-title {
+  font-size: 76px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.0;
+}
+
+.works-content h3 {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.works-content p {
+  font-size: 13px;
+  line-height: 2.0;
+  margin-bottom: 18px;
+  color: #333;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.works-arrows {
+  position: absolute;
+  top: 50%;
+  right: -120px;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.works-arrow {
+  width: 80px;
+  height: 2px;
+  background: #111;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.works-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #111;
+  border-right: 2px solid #111;
+  transform: rotate(45deg);
+}
+
+.works-more-btn {
+  position: relative;
+  margin-top: 40px;
+  background: #111;
+  color: #fff;
+  padding: 16px 60px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.20em;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+}
+
+.works-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 50px;
+  padding-left: 80px;
+}
+
+.works-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.works-dot.active {
+  background: #111;
+}
+
+/* Strategic Partner cards */
+.partner-bg {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.partner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(0.1);
+}
+
+.partner-main-title {
+  text-align: center;
+  margin: 60px 0 48px;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.partner-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+
+.partner-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.partner-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 14px 18px 8px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.partner-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 18px 16px;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Story cards（ざっくり） */
+.story-intro {
+  font-size: 13px;
+  line-height: 2.0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  font-weight: 400;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+.story-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.story-card {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.story-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.story-card img {
+  width: 320px;
+  height: 380px;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  object-position: center;
+}
+
+.story-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.story-card p {
+  font-size: 12px;
+  line-height: 1.9;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Team */
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.team-member {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.team-member.reverse {
+  flex-direction: row-reverse;
+}
+
+.team-member img {
+  width: 280px;
+  height: 360px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.member-role {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  margin-bottom: 6px;
+}
+
+.member-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.member-desc {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* SNS grid */
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.sns-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.sns-thumb {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.sns-thumb img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* ===== SECTION HEAD（ACCESS / CONTACT 共通） ===== */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 80px;
+  padding-left: 80px;
+}
+
+.section-line {
+  width: 72px;
+  height: 6px;
+  background: #f6c536;
+}
+
+.section-title {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: #111;
+  margin: 0;
+}
+
+/* Access */
+.access-address {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.access-map {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+}
+
+.access-map img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+}
+
+/* Contact */
+.contact-form {
+  margin: 24px auto 0;
+  display: grid;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.submit-btn {
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 999px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* ===== CONTACT（新デザイン） ===== */
+
+/* wrapper */
+.contact-wrap {
+  background: #eaeaea;
+  padding: 80px 0 120px;
+}
+
+/* form */
+.contact-form-ui {
+  width: min(980px, calc(100% - 140px));
+  margin: 0 auto;
+  display: grid;
+  gap: 56px;
+}
+
+/* label + input */
+.field label {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #111;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 6px;
+  padding: 18px 20px;
+  font-size: 18px;
+  background: #f7f7f7;
+  outline: none;
+  font-family: inherit;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.field textarea {
+  min-height: 520px;
+  resize: vertical;
+}
+
+/* button */
+.btn-send {
+  justify-self: center;
+  width: 220px;
+  height: 72px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-send:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+  padding: 24px 0 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #666;
+}
+
+/* Container padding override for partner section */
+.container.partner-container {
+  padding: 0 56px;
+}
+
+/* ざっくりレスポンシブ（スマホ） */
+@media (max-width: 900px) {
+  .hero-wrapper {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hero-left {
+    width: 100%;
+    padding: 32px 20px;
+  }
+
+  .header-logo {
+    margin-bottom: 24px;
+  }
+
+  .header-logo img {
+    height: 28px;
+  }
+
+  .nav {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .nav a {
+    font-size: 11px;
+  }
+
+  .hero-copy {
+    margin-top: 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-sub {
+    font-size: 12px;
+  }
+
+  .hero-right {
+    width: 100%;
+    height: 400px;
+  }
+
+  .page-panel {
+    clip-path: none;
+    box-shadow: none;
+  }
+
+  .expertise {
+    padding: 0 20px;
+  }
+
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-grid::before,
+  .expertise-grid::after {
+    display: none;
+  }
+
+  .section-wrapper {
+    padding: 48px 20px 0;
+  }
+
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card,
+  .story-card.reverse,
+  .team-member,
+  .team-member.reverse {
+    flex-direction: column;
+  }
+
+  .sns-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plan-first {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .plan-left,
+  .plan-right {
+    width: 100%;
+  }
+
+  .plan-left {
+    min-height: 400px;
+  }
+
+  .plan-right {
+    min-height: 300px;
+  }
+
+  .plan-text-left h2 {
+    font-size: 48px;
+  }
+
+  .plan-text-left h3 {
+    font-size: 14px;
+  }
+
+  .plan-text-left p {
+    font-size: 11px;
+  }
+
+  .plan-second {
+    height: 350px;
+  }
+
+  .plan-overlay {
+    min-width: 90%;
+    padding: 60px 40px;
+  }
+
+  .plan-text-center h2 {
+    font-size: 32px;
+  }
+
+  .four-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .card-item {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .card-content {
+    padding: 30px 25px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 12px;
+  }
+
+  .story-section {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .story-image {
+    width: 100%;
+  }
+
+  .story-content h2 {
+    font-size: 32px;
+  }
+
+  .story-content p {
+    font-size: 13px;
+  }
+
+  .method-cards {
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .method-card,
+  .method-card.reverse {
+    flex-direction: column;
+  }
+
+  .method-card-image {
+    width: 100%;
+    height: 250px;
+    clip-path: none !important;
+  }
+
+  .method-card-content {
+    padding: 30px 25px;
+    margin: 0 !important;
+  }
+
+  .method-card-content h3 {
+    font-size: 22px;
+  }
+
+  .method-card-content p {
+    font-size: 13px;
+  }
+
+  .team-section {
+    margin-top: 60px;
+  }
+
+  .team-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .team-members {
+    gap: 40px;
+  }
+
+  .team-member-card,
+  .team-member-card.reverse {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 25px;
+    text-align: center;
+  }
+
+  .team-member-photo {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .team-accent {
+    display: none;
+  }
+
+  .team-name {
+    font-size: 28px;
+  }
+
+  .team-description {
+    font-size: 13px;
+  }
+
+  /* Team Hero レスポンシブ */
+  .team-hero-title {
+    font-size: 38px;
+    margin-bottom: 40px;
+  }
+
+  .team-hero-card {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 20px;
+  }
+
+  .team-hero-card::before {
+    display: none;
+  }
+
+  .team-hero-photo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .team-hero-text {
+    min-width: auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .team-hero-text::before {
+    display: none;
+  }
+
+  .team-hero-name {
+    font-size: 44px;
+  }
+
+  .team-hero-role {
+    font-size: 16px;
+  }
+
+  /* Section Head レスポンシブ */
+  .section-head {
+    padding-left: 20px;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-line {
+    width: 40px;
+    height: 4px;
+  }
+
+  .section-title {
+    font-size: 42px;
+    letter-spacing: 0.18em;
+  }
+
+  .works-section {
+    margin-top: 60px;
+  }
+
+  .works-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .works-left {
+    width: 100%;
+  }
+
+  .works-yellow-frame {
+    display: none;
+  }
+
+  .works-title {
+    font-size: 36px;
+  }
+
+  .works-title-bg {
+    position: static;
+    padding: 15px 30px;
+    text-align: center;
+  }
+
+  .works-content h3 {
+    font-size: 24px;
+  }
+
+  .works-content p {
+    font-size: 13px;
+  }
+
+  .works-arrows {
+    display: none;
+  }
+
+  .works-more-btn {
+    position: static;
+    margin: 30px auto 0;
+    display: block;
+  }
+
+  /* ===== CONTACT レスポンシブ ===== */
+  .contact-form-ui {
+    width: min(980px, calc(100% - 40px));
+    gap: 34px;
+  }
+
+  .field label {
+    font-size: 18px;
+  }
+
+  .field textarea {
+    min-height: 320px;
+  }
+
+  .btn-send {
+    width: 180px;
+    height: 60px;
+    font-size: 20px;
+  }
+}
+
+/* ========================================
+   FIX: section-wrapper の背景レイヤーを背面へ
+   ======================================== */
+.section-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.section-wrapper::before {
+  z-index: -1 !important;
+}
+
+/* ACCESSの中身を必ず前面へ */
+.section-wrapper .section-head,
+.section-wrapper .access-address,
+.section-wrapper .access-map {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   ACCESS: タイトルが白背景で見えない対策
+   ======================================== */
+#access .section-title {
+  color: #111 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#access .section-line {
+  background: #f6c536 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#access .section-head {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#access .access-address {
+  color: #111;
+}

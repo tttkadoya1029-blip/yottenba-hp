@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>LIBERA - Your Strategic Partner for Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- フォント（libera-landing2.html と同じ系統） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== RESET / BASE ========== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Barlow Condensed", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f1f1f1;
+      color: #111;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* コンテナ共通 */
+    .container {
+      width: 1200px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== ページ全体（白い大きなパネル） ========== */
+
+    .page-bg {
+      padding: 32px 0 80px;
+    }
+
+    .page-panel {
+      position: relative;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0 70%);
+      padding-bottom: 80px;
+    }
+
+    /* ========== HEADER（libera-landing2.html ベース） ========== */
+
+    .header {
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 36px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      letter-spacing: 0.20em;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #111;
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ========== HERO（今回のメイン修正） ========== */
+
+    .hero-wrapper {
+      margin-top: 32px;
+    }
+
+    .hero {
+      display: flex;
+      height: 480px;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* 左側：ロゴ + 黄色バー + コピー */
+    .hero-left {
+      width: 50%;
+      padding: 40px 40px 40px 56px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-libera-logo {
+      width: 230px;
+    }
+
+    .hero-yellow-bar {
+      width: 60px;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-30%);
+    }
+
+    .hero-copy {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 50px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin: 0;
+    }
+
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    /* 右側：斜めに切った画像＋カテゴリ */
+    .hero-right {
+      width: 50%;
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-right-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-tags {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 12px 40px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+
+    .hero-tags span {
+      border-bottom: 3px solid #000;
+      padding-bottom: 4px;
+      white-space: nowrap;
+      background: transparent;
+    }
+
+    /* ========== OUR EXPERTISE（libera-landing2.html をベースに再配置） ========== */
+
+    .expertise {
+      margin-top: 56px;
+      padding: 0 56px 0 56px;
+      overflow: hidden;
+    }
+
+    .expertise-title {
+      font-size: 40px;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 40px;
+      position: relative;
+    }
+
+    /* 背景の黄色い斜め帯 */
+    .expertise-grid::before,
+    .expertise-grid::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 260px;
+      background: #f6c536;
+      transform: skewX(-10deg);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .expertise-grid::before {
+      left: 48%;
+      top: 80px;
+    }
+
+    .expertise-grid::after {
+      left: 18%;
+      top: 220px;
+    }
+
+    .expertise-card {
+      display: flex;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      height: 190px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .expertise-image {
+      position: relative;
+      width: 45%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .expertise-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 画像側の右端を白い三角でカット */
+    .expertise-image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -50px;
+      width: 100px;
+      height: 100%;
+      background: #ffffff;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    .expertise-content {
+      flex: 1;
+      padding: 26px 26px 20px;
+    }
+
+    .expertise-subtitle {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+
+    .expertise-content h3 {
+      font-size: 20px;
+      letter-spacing: 0.16em;
+      margin-bottom: 12px;
+    }
+
+    .expertise-description {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ========== 以下、他セクションはとりあえずベースだけ（libera-landing2.html を踏襲） ========== */
+
+    .section-wrapper {
+      padding: 64px 56px 0 56px;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .bar-yellow {
+      width: 40px;
+      height: 4px;
+      background: #f6c536;
+    }
+
+    .section-title-row h2 {
+      font-size: 28px;
+      letter-spacing: 0.12em;
+    }
+
+    /* Plan Proposal */
+    .plan {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .plan-text h3 {
+      font-size: 20px;
+      margin: 12px 0 16px;
+    }
+
+    .plan-text p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* Strategic Partner cards */
+    .partner-bg {
+      margin-top: 40px;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .partner-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.1);
+    }
+
+    .partner-main-title {
+      text-align: center;
+      margin: 40px 0 32px;
+      font-size: 30px;
+      letter-spacing: 0.10em;
+      line-height: 1.4;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 32px;
+    }
+
+    .partner-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .partner-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .partner-card h3 {
+      font-size: 16px;
+      letter-spacing: 0.10em;
+      margin: 14px 18px 8px;
+    }
+
+    .partner-card p {
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0 18px 16px;
+    }
+
+    /* Story cards（ざっくり） */
+    .story-intro {
+      font-size: 14px;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .story-skyline {
+      margin: 20px 0 32px;
+    }
+
+    .story-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .story-card {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .story-card.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .story-card img {
+      width: 260px;
+      border-radius: 6px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .story-card h3 {
+      font-size: 18px;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    .story-card p {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Team */
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .team-member {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .team-member.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .team-member img {
+      width: 220px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .member-role {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      margin-bottom: 6px;
+    }
+
+    .member-name {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .member-desc {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* SNS grid */
+    .sns-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .sns-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .sns-thumb img {
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    /* Access */
+    .access-address {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .access-map img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+    }
+
+    /* Contact */
+    .contact-form {
+      margin-top: 24px;
+      display: grid;
+      gap: 18px;
+      max-width: 520px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      padding: 10px 32px;
+      border-radius: 999px;
+      border: none;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0 0;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: #666;
+    }
+
+    /* ざっくりレスポンシブ（スマホ） */
+    @media (max-width: 900px) {
+      .page-panel {
+        clip-path: none;
+        box-shadow: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .hero-left,
+      .hero-right {
+        width: 100%;
+      }
+
+      .hero-left {
+        padding: 24px 20px 32px;
+      }
+
+      .hero-title {
+        margin-top: 96px;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .hero-sub {
+        font-size: 16px;
+      }
+
+      .hero-yellow-bar {
+        left: 24px;
+      }
+
+      .expertise {
+        padding: 0 20px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .expertise-grid::before,
+      .expertise-grid::after {
+        display: none;
+      }
+
+      .section-wrapper {
+        padding: 48px 20px 0;
+      }
+
+      .partner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card,
+      .story-card.reverse,
+      .team-member,
+      .team-member.reverse {
+        flex-direction: column;
+      }
+
+      .sns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page-bg">
+    <div class="page-panel">
+
+      <!-- ========== HEADER ========== -->
+      <header class="header">
+        <div class="container header-inner">
+          <div class="header-logo">
+            <!-- ここは svg ロゴでも画像でもOK。とりあえず Libera ロゴ画像にしておく -->
+            <img src="image/Libera_logo.png" alt="LIBERA Logo">
+          </div>
+          <nav class="nav">
+            <a href="#home">HOME</a>
+            <a href="#expertise">EXPERTISE</a>
+            <a href="#works">WORKS</a>
+            <a href="#team">TEAM</a>
+            <a href="#contact">CONTACT</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- ========== HERO ========== -->
+      <main class="hero-wrapper">
+       <section class="hero" id="home">
+  <!-- 左側：黄色バー + タイトル + 日本語コピー -->
+  <div class="hero-left">
+    <!-- 黄色い斜めの棒（画像） -->
+    <img
+      src="image/rectangle281212-0nw-200w.png"
+      class="hero-yellow-bar"
+      alt="Accent bar"
+    >
+
+    <div class="hero-copy">
+      <h1 class="hero-title">CREATE SOCIAL IMPACT</h1>
+
+      <p class="hero-sub">
+        フィリピンでの新たな経済圏の創出<br>
+        人々の暮らしの永続的な向上
+      </p>
+    </div>
+  </div>
+
+  <!-- 右側：斜めにカットされた写真 -->
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <img src="image/header1.png" class="hero-photo" alt="Manila Bay">
+    </div>
+    <!-- カテゴリタグ（右上に配置） -->
+    <div class="hero-tags">
+      <span>REAL ESTATE</span>
+      <span>FOOD CONSULTING</span>
+      <span>TECHNOLOGY</span>
+      <span>MARKETING</span>
+    </div>
+  </div>
+</section>
+
+
+        <!-- ========== OUR EXPERTISE ========== -->
+        <section class="expertise" id="expertise">
+          <h2 class="expertise-title">OUR EXPERTISE</h2>
+
+          <div class="expertise-grid">
+            <!-- 1: Real Estate -->
+            <article class="expertise-card">
+              <div class="expertise-image">
+                <img src="image/real_estate.png" alt="Real Estate">
+              </div>
+              <div class="expertise-content">
+                <p class="expertise-subtitle">不動産</p>
+                <h3>REAL ESTATE</h3>
+                <p class="expertise-description">
+                  事業計画をヒアリングし<br>
+                  自社データベースを活用して<br>
+                  物件をご提案
+                </p>
+              </div>
+            </article>
+
+            <!-- 2: Food Consulting -->
+            <article class="expertise-card">
+              <div class="expertise-image">
+                <img src="image/food_consulting.png" alt="Food Consulting">
+              </div>
+              <div class="expertise-content">
+                <p class="expertise-subtitle">飲食</p>
+                <h3>FOOD CONSULTING</h3>
+                <p class="expertise-description">
+                  ターゲット選定、コンセプト作り、<br>
+                  デザイン・内装支援
+                </p>
+              </div>
+            </article>
+
+            <!-- 3: Technology -->
+            <article class="expertise-card">
+              <div class="expertise-image">
+                <img src="image/technology.png" alt="Technology">
+              </div>
+              <div class="expertise-content">
+                <p class="expertise-subtitle">IT</p>
+                <h3>TECHNOLOGY</h3>
+                <p class="expertise-description">
+                  システム開発から持続性の高い<br>
+                  プロジェクトのコンサルティング
+                </p>
+              </div>
+            </article>
+
+            <!-- 4: Marketing -->
+            <article class="expertise-card">
+              <div class="expertise-image">
+                <img src="image/marketing.png" alt="Marketing">
+              </div>
+              <div class="expertise-content">
+                <p class="expertise-subtitle">マーケティング</p>
+                <h3>MARKETING</h3>
+                <p class="expertise-description">
+                  SNS選定から運用方針まで<br>
+                  トータルでご提案
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ========== Plan Proposal（libera-landing2.html から） ========== -->
+        <section class="section-wrapper" id="works">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>PLAN PROPOSAL</h2>
+          </div>
+
+          <div class="plan">
+            <div class="plan-image">
+              <img src="public/stockphotobusinesspeoplemeetingdesignideasconceptb139-54mj-800h.png" alt="Plan Proposal">
+            </div>
+            <div class="plan-text">
+              <h3>プロジェクト単位でスペシャリストを招集し、プランをご提案</h3>
+              <p>
+                フィリピン滞在歴10年を超えるメンバー、パートナーを多数要する不動産、飲食、IT、マーケティング等に長けた特殊知識集団。<br>
+                経歴やスキルはバラバラですが一人一人が特定分野のエキスパートとしての自覚をもって<br>
+                個人・企業を問わず皆様のフィリピンでの新規事業をコンサルタントとして強力にサポートいたします。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== Strategic Partner ========== -->
+        <section class="section-wrapper">
+          <div class="partner-bg">
+            <img src="public/bg16-gynk-1600h.png" alt="Business Meeting">
+          </div>
+          <div class="container" style="padding:0 56px;">
+            <h2 class="partner-main-title">
+              YOUR STRAREGIC PARTNER<br>FOR BUSINESS
+            </h2>
+            <div class="partner-grid">
+              <article class="partner-card">
+                <div class="partner-image">
+                  <img src="public/image41127-a66eg-600h.png" alt="Local Expertise">
+                </div>
+                <h3>LOCAL EXPERTISE IN THE PHILOPPINES</h3>
+                <p>10年以上の現地滞在歴とネットワークを活かし、リアルな市場情報を提供。文化・商習慣のギャップをスムーズに橋渡し。</p>
+              </article>
+              <article class="partner-card">
+                <div class="partner-image">
+                  <img src="public/image41137-dwog-500h.png" alt="Tailored Solutions">
+                </div>
+                <h3>TAILORED SOLUTIONS ACROSS INDUSTRIES</h3>
+                <p>不動産・飲食・IT・マーケティングなど、多様な分野に精通した専門家が、事業内容に応じた最適な戦略を提案。</p>
+              </article>
+              <article class="partner-card">
+                <div class="partner-image">
+                  <img src="public/image41147-3918-500h.png" alt="Business Support">
+                </div>
+                <h3>END-TO-END BUSINESS SUPPORT</h3>
+                <p>リサーチから事業立ち上げ、現地運営サポートまで一貫対応。個人事業主から大手企業まで柔軟に対応可能。</p>
+              </article>
+              <article class="partner-card">
+                <div class="partner-image">
+                  <img src="public/image41157-he2q-600w.png" alt="Agile Team">
+                </div>
+                <h3>COLLABORATIVE AND AGILE TEAM</h3>
+                <p>多様な経歴を持つメンバーが、それぞれの強みを活かして連携。スピード感と柔軟性のあるサポート体制。</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== Story About What We Do ========== -->
+        <section class="section-wrapper">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>STORY ABOUT WHAT WE DO</h2>
+          </div>
+          <div class="story-intro">
+            <p>私たちは、フィリピンにおける10年以上の現地経験を活かし、物件選定・法人設立からデザイン＆内装、SNS/MEOマーケティング、Web3.0/Crypto/NFT、新規事業開発、アジャイル／スクラム運営まで、ワンストップで支援します。</p>
+            <p>市場データと文化的洞察に基づくローカライズ戦略とアジャイル手法で、スピーディかつ持続可能なビジネス成長を実現。</p>
+            <p>現地パートナーやOFWネットワークを活用し、アイデアを確かな成果に変える架け橋となります。</p>
+          </div>
+          <div class="story-skyline">
+            <img src="public/bg1121-1jee-2500h.png" alt="Manila Skyline">
+          </div>
+
+          <div class="story-grid">
+            <div class="story-card">
+              <img src="public/image1154-904-900w.png" alt="Business Method">
+              <div>
+                <h3>BUSINESS METHOD</h3>
+                <p>スクラム方式を採用し、事前にタスク(バックログ)を洗い出して優先順位を設定しながら進行</p>
+              </div>
+            </div>
+            <div class="story-card reverse">
+              <img src="public/image1144-l2j7-900w.png" alt="Insights">
+              <div>
+                <h3>INSIGHTS &amp; ANALIYSIS</h3>
+                <p>事業計画をヒアリングしたうえで自社データベースを活用して新規事業をコンサルタントとしてサポート</p>
+              </div>
+            </div>
+            <div class="story-card">
+              <img src="public/image1134-bnu-900w.png" alt="Value Creation">
+              <div>
+                <h3>SUSTAINABLE VALUE CREATION</h3>
+                <p>プロジェクトの持続可能性を高める仕組みづくりを通じ、長期的な成長基盤を構築</p>
+              </div>
+            </div>
+            <div class="story-card reverse">
+              <img src="public/image1128-c6j-300h.png" alt="Digital Solutions">
+              <div>
+                <h3>INOVATIVE DIGITAL SOLUTIONS</h3>
+                <p>Web3.0を単なるトレンドではなく「未来社会を形成する重要要素」と捉え、フィリピン市場の信頼回復と健全なエコシステムの発展に貢献</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== TEAM ========== -->
+        <section class="section-wrapper" id="team">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>MEET OUR TEAM</h2>
+          </div>
+          <div class="team-grid">
+            <div class="team-member">
+              <img src="public/hada31103-hg59-400h.png" alt="Junya Hada">
+              <div>
+                <p class="member-role">Founder/President</p>
+                <div class="member-name">Junya Hada</div>
+                <p class="member-desc">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+              </div>
+            </div>
+            <div class="team-member reverse">
+              <img src="public/image021110-jrq-300w.png" alt="Kristina Edrozo">
+              <div>
+                <p class="member-role">Executive Assistant</p>
+                <div class="member-name">Kristina Edrozo</div>
+                <p class="member-desc">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <img src="public/image4196-b499-300w.png" alt="Takahiro Kadoya">
+              <div>
+                <p class="member-role">Marketer</p>
+                <div class="member-name">Takahiro Kadoya</div>
+                <p class="member-desc">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== SNS ========== -->
+        <section class="section-wrapper">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>SNS</h2>
+          </div>
+          <div class="sns-grid">
+            <a href="https://www.tiktok.com/@libera_concept" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle58161-6lhb-400h.png" alt="TikTok">
+              </div>
+              <span>TikTok / libera_concept</span>
+            </a>
+            <a href="https://www.facebook.com/dwiz882/videos/2103418653470682" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle62162-mbf9-400h.png" alt="Facebook">
+              </div>
+              <span>Facebook Live</span>
+            </a>
+            <a href="https://www.tiktok.com/@japanese.sake" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle59163-4kf9-400h.png" alt="TikTok 2">
+              </div>
+              <span>TikTok / japanese.sake</span>
+            </a>
+            <a href="https://www.facebook.com/photo?fbid=122106598100906761&set=pcb.122106596174906761" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle60164-mw3a-400h.png" alt="Facebook Photo">
+              </div>
+              <span>Facebook Photo</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61577202839693" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle64165-t11-400h.png" alt="Facebook 2">
+              </div>
+              <span>Facebook / libera</span>
+            </a>
+            <a href="https://www.facebook.com/photo/?fbid=122106598082906761&set=pcb.122106596174906761" class="sns-item">
+              <div class="sns-thumb">
+                <img src="public/rectangle66166-2roi-400h.png" alt="Facebook Gallery">
+              </div>
+              <span>Facebook Gallery</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ========== ACCESS ========== -->
+        <section class="section-wrapper">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>ACCESS</h2>
+          </div>
+          <p class="access-address">Six Axis Building, B. Valdez, Makati, 4347 Metro Manila</p>
+          <div class="access-map">
+            <img src="public/image1156-x7za-600h.png" alt="Map">
+          </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section class="section-wrapper" id="contact">
+          <div class="section-title-row">
+            <div class="bar-yellow"></div>
+            <h2>CONTACT</h2>
+          </div>
+          <form class="contact-form">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND</button>
+          </form>
+        </section>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>©LIBERACC</p>
+      </footer>
+
+    </div><!-- /.page-panel -->
+  </div><!-- /.page-bg -->
+</body>
+</html>
