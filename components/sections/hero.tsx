@@ -59,31 +59,26 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="aspect-[4/3] w-full rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl">
-            <div className="h-full w-full rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-5">
-              <div className="text-sm text-white/70">♪ Yotteba Experience</div>
-              <div className="mt-2 text-2xl font-semibold">Lanterns & Energy</div>
-              <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-2xl bg-black/30 p-4">
-                  <div className="text-white/70">Signature</div>
-                  <div className="mt-1 font-semibold">Legendary Tebasaki</div>
-                </div>
-                <div className="rounded-2xl bg-black/30 p-4">
-                  <div className="text-white/70">Drinks</div>
-                  <div className="mt-1 font-semibold">Highball & Sours</div>
-                </div>
-                <div className="rounded-2xl bg-black/30 p-4">
-                  <div className="text-white/70">Daily</div>
-                  <div className="mt-1 font-semibold">Special Promos</div>
-                </div>
-                <div className="rounded-2xl bg-black/30 p-4">
-                  <div className="text-white/70">Vibe</div>
-                  <div className="mt-1 font-semibold">Groups Welcome</div>
-                </div>
-              </div>
-              <div className="mt-5 text-xs text-white/55">
-                Open daily 11AM–1AM | Walk-ins & Reservations
-              </div>
+          <div className="aspect-video w-full rounded-3xl border border-white/10 bg-white/5 shadow-2xl overflow-hidden">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/6PjqMvqs4JI?autoplay=1&mute=1&loop=1&playlist=6PjqMvqs4JI&controls=0&showinfo=0&rel=0&modestbranding=1"
+              title="Yotteba Izakaya Experience"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-2xl border-0"
+            ></iframe>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+            <div className="rounded-2xl bg-black/30 border border-white/10 p-4">
+              <div className="text-white/70">Signature</div>
+              <div className="mt-1 font-semibold">Legendary Tebasaki</div>
+            </div>
+            <div className="rounded-2xl bg-black/30 border border-white/10 p-4">
+              <div className="text-white/70">Drinks</div>
+              <div className="mt-1 font-semibold">Highball & Sours</div>
             </div>
           </div>
         </div>
