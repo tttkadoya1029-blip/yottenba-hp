@@ -34,11 +34,6 @@ const food = [
     desc: "Classic crispy fried chicken.",
     image: "/images/menu/skewer.png"
   },
-  {
-    title: "Yotteba Skewers (Fried chicken skewers)",
-    desc: "Crispy and flavorful fried chicken skewers.",
-    image: "/images/menu/skewer.png"
-  },
 ];
 
 const drinks = [
