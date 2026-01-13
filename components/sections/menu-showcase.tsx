@@ -52,12 +52,6 @@ const drinks = [
     desc: "Super-sized refreshment.",
     image: "/images/menu/mega-lemon-sour.png"
   },
-  { title: "Super Carbonated Highball", desc: "Refreshing and crisp." },
-  { title: "Ocha-wari", desc: "Tea-infused shochu. Smooth." },
-  { title: "Shochu", desc: "On the rocks / Water / Hot water." },
-  { title: "Sake", desc: "Pairs perfectly with our dishes." },
-  { title: "Cocktails", desc: "Something for everyone." },
-  { title: "Soft Drinks", desc: "Non-alcoholic options available." },
 ];
 
 export function MenuShowcase() {
