@@ -30,7 +30,7 @@ const food = [
     image: "/images/menu/sukiyaki.png"
   },
   {
-    title: "House Karaage",
+    title: "Karaage（唐揚げ）",
     desc: "Classic crispy fried chicken.",
     image: "/images/menu/skewer.png"
   },
