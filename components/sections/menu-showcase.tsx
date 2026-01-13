@@ -34,10 +34,16 @@ const food = [
     desc: "Sweet and savory hot pot.",
     image: "/images/menu/sukiyaki.png"
   },
-  { title: "House Karaage", desc: "Classic crispy fried chicken." },
-  { title: "French Fries", desc: "Always a crowd pleaser." },
-  { title: "Tsukune Skewers", desc: "Chicken meatballs with egg yolk." },
-  { title: "Edamame", desc: "Classic starter." },
+  {
+    title: "House Karaage",
+    desc: "Classic crispy fried chicken.",
+    image: "/images/menu/skewer.png"
+  },
+  {
+    title: "Yotteba Skewers (Fried chicken skewers)",
+    desc: "Crispy and flavorful fried chicken skewers.",
+    image: "/images/menu/skewer.png"
+  },
 ];
 
 const drinks = [

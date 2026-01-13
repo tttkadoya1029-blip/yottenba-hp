@@ -7,15 +7,15 @@ export function Hero() {
     <section id="top" className="relative min-h-[80vh] overflow-hidden lantern-border-bottom">
       {/* Full-screen background video */}
       <div className="absolute inset-0 w-full h-full">
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/mOD3sC1FEHE?autoplay=1&mute=1&loop=1&playlist=mOD3sC1FEHE&controls=0&showinfo=0&rel=0&modestbranding=1"
-          title="Yotteba Izakaya Experience"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="border-0 w-full h-full object-cover"
-        ></iframe>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/header-video.mp4" type="video/mp4" />
+        </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
