@@ -25,11 +25,6 @@ const food = [
     image: "/images/menu/sashimi.png"
   },
   {
-    title: "Yakitori Skewers（焼き鳥）",
-    desc: "Grilled chicken perfection.",
-    image: "/images/menu/skewer.png"
-  },
-  {
     title: "Sukiyaki（すき焼き）",
     desc: "Sweet and savory hot pot.",
     image: "/images/menu/sukiyaki.png"
