@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-8 md:flex-row md:justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <div className="relative h-12 w-12">
+              <div className="relative h-16 w-16">
                 <Image
                   src="/logo.png"
                   alt="YOTTEBA Logo"
