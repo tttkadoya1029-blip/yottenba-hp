@@ -10,9 +10,9 @@ export function SiteFooter() {
               <div className="relative h-16 w-16">
                 <Image
                   src="/logo.png"
-                  alt="YOTTEBA Logo"
+                  alt="YOTTEBA Izakaya Revolution Logo"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
               </div>
               <div className="leading-tight">
