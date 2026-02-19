@@ -68,6 +68,34 @@ export function Location() {
           />
         </div>
       </div>
+
+      <div
+        id="delivery"
+        className="mt-6 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 content-overlay scroll-mt-20"
+      >
+        <h3 className="text-lg font-bold text-white">Delivery</h3>
+        <p className="mt-1 text-sm text-white/90">
+          Order YOTTEBA at home via GrabFood or Foodpanda.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <a
+            href="https://food.grab.com/ph/en/restaurant/yotteba-izakaya-revolution-chino-roces-delivery/2-C7NWVJDECB4JVE?"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-2xl bg-green-500 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+          >
+            GrabFood
+          </a>
+          <a
+            href="https://www.foodpanda.ph/restaurant/ojrw/yotteba-marvin-plaza"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-2xl bg-[#d70f64] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+          >
+            Foodpanda
+          </a>
+        </div>
+      </div>
     </Section>
   );
 }
