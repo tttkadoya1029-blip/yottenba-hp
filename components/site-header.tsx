@@ -9,7 +9,6 @@ const nav = [
   { label: "Menu", href: "#menu" },
   { label: "Location", href: "#location" },
   { label: "News", href: "#news" },
-  { label: "Delivery", href: "#delivery" },
 ];
 
 export function SiteHeader() {
@@ -94,6 +93,13 @@ export function SiteHeader() {
             data-cta="reserve"
           >
             Reserve
+          </a>
+          <a
+            href="#delivery"
+            className="rounded-xl bg-[#c41e3a] px-3 py-2 text-sm font-semibold text-white hover:bg-[#a01830]"
+            data-cta="delivery"
+          >
+            Delivery
           </a>
         </div>
       </div>
