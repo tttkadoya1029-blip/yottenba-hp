@@ -40,12 +40,12 @@ const drinks = [
   {
     title: "Draft Beer（生ビール）",
     desc: "Start with a cold one.",
-    image: "/images/menu/beer.jpg"
+    image: "/images/menu/beer.png"
   },
   {
     title: "Lemon Sour（レモンサワー）",
     desc: "Classic Japanese favorite.",
-    image: "/images/menu/lemon-sour.jpg"
+    image: "/images/menu/lemon-sour.png"
   },
   {
     title: "Mega Lemon Sour（メガレモンサワー）",
