@@ -62,6 +62,17 @@ export function MenuShowcase() {
         Signature dishes and drinks that keep you coming back.
       </p>
 
+      <div className="mt-5">
+        <a
+          href="https://shn-food.co.jp/manila-2026"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block rounded-xl bg-[#c41e3a] px-6 py-3 text-sm font-semibold text-white hover:bg-[#a01830] transition-colors"
+        >
+          Latest Menu
+        </a>
+      </div>
+
       <div className="mt-8 space-y-10">
         <div>
           <div className="mb-3 flex items-center justify-between">
